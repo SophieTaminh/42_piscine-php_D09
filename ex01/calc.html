@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>calculatrice</title>
+<style>
+#nb1{
+	padding: 20px;
+	border-radius: 10px;
+}
+
+#nb2{
+	padding: 20px;
+	border-radius: 10px;
+}
+#operation{
+	padding: 20px;
+	border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+	
+		<input type="text" name="nb1" id="nb1" />
+	
+		<select id="operation">
+ 			<option value="plus" selected>+</option>
+ 			  		<option value="moins">-</option>
+  			 		<option value="mult">*</option>
+ 			 		<option value="div">/</option>
+ 			 		<option value="modulo">%</option>
+ 			</select>
+		
+		<input type="text" id="nb2" />
+	
+		<button type="submit" value="Try me !" onclick="fn_calcul()">Try me !</button>
+	
+	
+
+<script type="text/javascript">
+
+setInterval("alert('Please, use me...')", 30000);
+
+function fn_calcul()
+{
+	var my_nb1 = document.getElementById('nb1').value;
+	var my_ope = document.getElementById('operation').value;
+	var my_nb2 = document.getElementById('nb2').value;
+	var my_total = 0;
+
+	if (isNaN(my_nb1) || isNaN(my_nb2)) 
+	{
+		alert("Error:(");
+		return;
+	}
+
+	my_nb1 = parseInt(my_nb1,10);
+	my_nb2 = parseInt(my_nb2,10);
+
+	if (my_nb1 < 0 || my_nb2 < 0  || !Number.isInteger(my_nb1) || !Number.isInteger(my_nb2) )
+	{
+		alert("Error:(");
+		return;
+	}
+
+	if ((my_ope == "div" || my_ope == "modulo" ) && my_nb2 == 0)
+	{
+		console.log("It’s over 9000!");
+		alert("It’s over 9000!");
+		return;
+	}
+
+	if (my_ope == "plus")
+	{
+		my_total = my_nb1 + my_nb2;
+	}
+	if (my_ope == "moins")
+	{
+		my_total = my_nb1 - my_nb2;
+	}
+	if (my_ope == "mult")
+	{
+		my_total = my_nb1 * my_nb2;
+	}
+	if (my_ope == "div")
+	{
+		my_total = my_nb1 / my_nb2;
+	}
+	if (my_ope == "modulo")
+	{
+		my_total = my_nb1 % my_nb2;
+	}
+
+	alert("le resultat est "+my_total);
+	console.log("le resultat est "+my_total);
+}
+
+
+
+</script>
+</body>
+</html>

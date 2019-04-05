@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>balloon</title>
+</head>
+
+<body>
+	<div id="balloon" style="height: 200px; width: 200px; background-color: red;border-radius: 100px;" 
+	onclick="fn_up()" onmouseout="fn_down()"></div>
+
+<script type="text/javascript">
+	var my_size = 200;
+	var my_radius = 100;
+	var my_color = "red";
+	
+function fn_up()
+{
+	var my_balloon = document.getElementById('balloon');
+	
+	my_size = my_size + 10;
+	my_radius = my_radius + 10;
+	my_flag = "avant";
+
+	if (my_color == "red" && my_flag == "avant")
+		{
+			my_color = "green";
+			my_flag = "apres";
+		}	
+	if (my_color == "green" && my_flag == "avant")
+		{
+			my_color = "blue";
+			my_flag = "apres";
+		}
+	if (my_color == "blue" && my_flag == "avant")
+		{
+			my_color = "red";
+			my_flag = "apres";
+		}
+	
+	if (my_size > 420 )
+	{
+		my_color = "red";
+		my_size = 200;
+		my_radius = 100;
+	}
+
+	my_balloon.setAttribute('style','background-color:'+ my_color +';height: '+ my_size +'px; width: '+ my_size +'px;border-radius: '+ my_radius +'px;');
+}
+
+function fn_down()
+{
+	var my_balloon = document.getElementById('balloon');
+	
+	my_size = my_size - 5;
+	my_radius = my_radius + 10;
+	my_flag = "avant";
+
+	if (my_color == "red" && my_flag == "avant")
+		{
+			my_color = "blue";
+			my_flag = "apres";
+		}	
+	if (my_color == "green" && my_flag == "avant")
+		{
+			my_color = "red";
+			my_flag = "apres";
+		}
+	if (my_color == "blue" && my_flag == "avant")
+		{
+			my_color = "green";
+			my_flag = "apres";
+		}
+
+	if (my_size < 200 )
+	{
+		my_size = 200;
+		my_radius = 100;
+	}	
+	my_balloon.setAttribute('style','background-color:'+ my_color +';height: '+ my_size +'px; width: '+ my_size +'px;border-radius: '+ my_radius +'px;');
+}
+
+
+</script>
+</body>
+</html>
